@@ -16,13 +16,13 @@ model Book {
   cover       String
   dedication  String
   pages       Int
-  releaseDate DateTime @map("release_date")
+  release_date String
   summary     String
   title       String
   wiki        String
 
-  createdAt DateTime @default(now()) @map("created-at")
-  updatedAt DateTime @updatedAt @map("updated-at")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
 
   @@map("books")
 }
@@ -34,8 +34,8 @@ model Character {
   animagus       String?
   blood_status   String?
   boggart        String?
-  born           DateTime?
-  died           DateTime?
+  born           String?
+  died           String?
   eye_color      String?
   family_members String[]
   gender         String?
@@ -56,8 +56,8 @@ model Character {
   weight         Float?
   wiki           String?
 
-  createdAt DateTime @default(now()) @map("created-at")
-  updatedAt DateTime @updatedAt @map("updated-at")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
 
   @@map("characters")
 }
@@ -76,7 +76,7 @@ model Movie {
   poster           String
   producers        String[]
   rating           String
-  release_date     DateTime
+  release_date     String
   running_time     String
   screenwriters    String[]
   summary          String
@@ -84,8 +84,8 @@ model Movie {
   trailer          String
   wiki             String
 
-  createdAt DateTime @default(now()) @map("created-at")
-  updatedAt DateTime @updatedAt @map("updated-at")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
 
   @@map("movies")
 }
@@ -106,8 +106,8 @@ model Potion {
   time            String?
   wiki            String?
 
-  createdAt DateTime @default(now()) @map("created-at")
-  updatedAt DateTime @updatedAt @map("updated-at")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
 
   @@map("potions")
 }
@@ -126,8 +126,8 @@ model Spell {
   name        String?
   wiki        String?
 
-  createdAt DateTime @default(now()) @map("created-at")
-  updatedAt DateTime @updatedAt @map("updated-at")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
 
   @@map("spells")
 }
@@ -138,8 +138,8 @@ model User {
   password String
   email    String
 
-  createdAt DateTime @default(now()) @map("created-at")
-  updatedAt DateTime @updatedAt @map("updated-at")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
 
   @@map("users")
 }
