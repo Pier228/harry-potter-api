@@ -131,3 +131,15 @@ model Spell {
 
   @@map("spells")
 }
+
+model User {
+  id       Int    @id @default(autoincrement())
+  login    String @unique
+  password String
+  email    String
+
+  createdAt DateTime @default(now()) @map("created-at")
+  updatedAt DateTime @updatedAt @map("updated-at")
+
+  @@map("users")
+}

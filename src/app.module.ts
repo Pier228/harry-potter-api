@@ -4,6 +4,8 @@ import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
 import { BooksModule } from './books/books.module';
 import { CacheInterceptor, CacheModule } from '@nestjs/cache-manager';
 import { APP_GUARD, APP_INTERCEPTOR } from '@nestjs/core';
+import { AdminPanelModule } from './admin-panel/admin-panel.module';
+import { JwtModule } from '@nestjs/jwt';
 
 @Module({
   imports: [
@@ -18,7 +20,13 @@ import { APP_GUARD, APP_INTERCEPTOR } from '@nestjs/core';
       ttl: 10800,
       max: 500,
     }),
+    JwtModule.register({
+      global: true,
+      secret: `${process.env.JWT_SECRET}`,
+      signOptions: { expiresIn: '4h' },
+    }),
     BooksModule,
+    AdminPanelModule,
   ],
   controllers: [],
   providers: [
