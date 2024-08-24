@@ -1,0 +1,145 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Book {
+  id          String   @id @default(uuid())
+  type        String   @default("book")
+  slug        String   @unique
+  author      String
+  cover       String
+  dedication  String
+  pages       Int
+  release_date String
+  summary     String
+  title       String
+  wiki        String
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("books")
+}
+
+model Character {
+  id             String    @id @default(uuid())
+  type           String    @default("character")
+  slug           String    @unique
+  animagus       String?
+  blood_status   String?
+  boggart        String?
+  born           String?
+  died           String?
+  eye_color      String?
+  family_members String[]
+  gender         String?
+  hair_color     String?
+  height         Float?
+  house          String?
+  image          String?
+  jobs           String[]
+  marital_status String?
+  name           String
+  nationality    String?
+  patronus       String?
+  romances       String[]
+  skin_color     String?
+  species        String?
+  titles         String[]
+  wands          String[]
+  weight         Float?
+  wiki           String?
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("characters")
+}
+
+model Movie {
+  id               String   @id @default(uuid())
+  type             String   @default("movie")
+  slug             String   @unique
+  box_office       String
+  budget           String
+  cinematographers String[]
+  directors        String[]
+  distributors     String[]
+  editors          String[]
+  music_composers  String[]
+  poster           String
+  producers        String[]
+  rating           String
+  release_date     String
+  running_time     String
+  screenwriters    String[]
+  summary          String
+  title            String
+  trailer          String
+  wiki             String
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("movies")
+}
+
+model Potion {
+  id              String  @id @default(uuid())
+  type            String  @default("potion")
+  slug            String  @unique
+  characteristics String?
+  difficulty      String?
+  effect          String?
+  image           String?
+  inventors       String?
+  ingredients     String?
+  manufacturers   String?
+  name            String
+  side_effects    String?
+  time            String?
+  wiki            String?
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("potions")
+}
+
+model Spell {
+  id          String  @id @default(uuid())
+  type        String  @default("spell")
+  slug        String  @unique
+  category    String?
+  creator     String?
+  effect      String?
+  hand        String?
+  image       String?
+  incantation String?
+  light       String?
+  name        String?
+  wiki        String?
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("spells")
+}
+
+model User {
+  id       Int    @id @default(autoincrement())
+  login    String @unique
+  password String
+  email    String
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("users")
+}
