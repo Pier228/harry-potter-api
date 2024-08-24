@@ -7,6 +7,7 @@ import { APP_GUARD, APP_INTERCEPTOR } from '@nestjs/core';
 import { AdminPanelModule } from './admin-panel/admin-panel.module';
 import { JwtModule } from '@nestjs/jwt';
 import { MoviesModule } from './movies/movies.module';
+import { PotionsModule } from './potions/potions.module';
 
 @Module({
   imports: [
@@ -29,6 +30,7 @@ import { MoviesModule } from './movies/movies.module';
     BooksModule,
     AdminPanelModule,
     MoviesModule,
+    PotionsModule,
   ],
   controllers: [],
   providers: [
