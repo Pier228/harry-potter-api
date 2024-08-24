@@ -6,9 +6,22 @@ import { AuthController } from './auth/auth.controller';
 import { AuthService } from './auth/auth.service';
 import { AdminPanelMoviesController } from './movies/admin-panel-movies.controller';
 import { AdminPanelMoviesService } from './movies/admin-panel-movies.service';
+import { AdminPanelPotionsController } from './potions/potions.controller';
+import { AdminPanelPotionsService } from './potions/potions.service';
 
 @Module({
-  controllers: [AdminPanelBooksController, AuthController, AdminPanelMoviesController],
-  providers: [PrismaService, AdminPanelBooksService, AuthService, AdminPanelMoviesService],
+  controllers: [
+    AdminPanelBooksController,
+    AuthController,
+    AdminPanelMoviesController,
+    AdminPanelPotionsController,
+  ],
+  providers: [
+    PrismaService,
+    AdminPanelBooksService,
+    AuthService,
+    AdminPanelMoviesService,
+    AdminPanelPotionsService,
+  ],
 })
 export class AdminPanelModule {}
