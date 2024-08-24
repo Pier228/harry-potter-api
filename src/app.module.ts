@@ -6,6 +6,7 @@ import { CacheInterceptor, CacheModule } from '@nestjs/cache-manager';
 import { APP_GUARD, APP_INTERCEPTOR } from '@nestjs/core';
 import { AdminPanelModule } from './admin-panel/admin-panel.module';
 import { JwtModule } from '@nestjs/jwt';
+import { MoviesModule } from './movies/movies.module';
 
 @Module({
   imports: [
@@ -27,6 +28,7 @@ import { JwtModule } from '@nestjs/jwt';
     }),
     BooksModule,
     AdminPanelModule,
+    MoviesModule,
   ],
   controllers: [],
   providers: [
