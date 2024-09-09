@@ -8,6 +8,7 @@ import { AdminPanelModule } from './admin-panel/admin-panel.module';
 import { JwtModule } from '@nestjs/jwt';
 import { MoviesModule } from './movies/movies.module';
 import { PotionsModule } from './potions/potions.module';
+import { SpellsModule } from './spells/spells.module';
 
 @Module({
   imports: [
@@ -31,6 +32,7 @@ import { PotionsModule } from './potions/potions.module';
     AdminPanelModule,
     MoviesModule,
     PotionsModule,
+    SpellsModule,
   ],
   controllers: [],
   providers: [
