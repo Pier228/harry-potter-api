@@ -8,6 +8,8 @@ import { AdminPanelMoviesController } from './movies/admin-panel-movies.controll
 import { AdminPanelMoviesService } from './movies/admin-panel-movies.service';
 import { AdminPanelPotionsController } from './potions/potions.controller';
 import { AdminPanelPotionsService } from './potions/potions.service';
+import { AdminPanelSpellsController } from './spells/spells.controller';
+import { AdminPanelSpellsService } from './spells/spells.service';
 
 @Module({
   controllers: [
@@ -15,6 +17,7 @@ import { AdminPanelPotionsService } from './potions/potions.service';
     AuthController,
     AdminPanelMoviesController,
     AdminPanelPotionsController,
+    AdminPanelSpellsController
   ],
   providers: [
     PrismaService,
@@ -22,6 +25,7 @@ import { AdminPanelPotionsService } from './potions/potions.service';
     AuthService,
     AdminPanelMoviesService,
     AdminPanelPotionsService,
+    AdminPanelSpellsService
   ],
 })
 export class AdminPanelModule {}
