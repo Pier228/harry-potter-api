@@ -9,6 +9,7 @@ import { JwtModule } from '@nestjs/jwt';
 import { MoviesModule } from './movies/movies.module';
 import { PotionsModule } from './potions/potions.module';
 import { SpellsModule } from './spells/spells.module';
+import { CharactersModule } from './characters/characters.module';
 
 @Module({
   imports: [
@@ -33,6 +34,7 @@ import { SpellsModule } from './spells/spells.module';
     MoviesModule,
     PotionsModule,
     SpellsModule,
+    CharactersModule,
   ],
   controllers: [],
   providers: [
