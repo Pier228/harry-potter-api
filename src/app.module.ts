@@ -10,6 +10,7 @@ import { MoviesModule } from './movies/movies.module';
 import { PotionsModule } from './potions/potions.module';
 import { SpellsModule } from './spells/spells.module';
 import { CharactersModule } from './characters/characters.module';
+import { AssistantModule } from './assistant/assistant.module';
 
 @Module({
   imports: [
@@ -35,6 +36,7 @@ import { CharactersModule } from './characters/characters.module';
     PotionsModule,
     SpellsModule,
     CharactersModule,
+    AssistantModule,
   ],
   controllers: [],
   providers: [
