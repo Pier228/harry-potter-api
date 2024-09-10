@@ -17,6 +17,7 @@ async function bootstrap() {
     .setTitle('Harry Potter Universe API')
     .setDescription('The Harry Potter Universe API description')
     .setVersion('1.0')
+    .addBearerAuth({ type: 'http', scheme: 'bearer' }, 'JWT')
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
