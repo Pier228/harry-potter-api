@@ -12,8 +12,10 @@ import { AuthGuard } from '../auth/guard/auth.guard';
 import { CreateBookDTO } from './dto/create.book.dto';
 import { AdminPanelBooksService } from './admin-panel-books.service';
 import { UpdateBookDTO } from './dto/update.book.dto';
+import { ApiTags } from '@nestjs/swagger';
 
 @Controller('admin-panel/books')
+@ApiTags('Admin Panel - Books')
 @UseGuards(AuthGuard)
 export class AdminPanelBooksController {
   constructor(

@@ -12,8 +12,10 @@ import { AdminPanelMoviesService } from './admin-panel-movies.service';
 import { AuthGuard } from '../auth/guard/auth.guard';
 import { CreateMovieDTO } from './dto/create.movie.dto';
 import { UpdateMovieDTO } from './dto/update.movie.dto';
+import { ApiTags } from '@nestjs/swagger';
 
 @Controller('admin-panel/movies')
+@ApiTags('Admin Panel - Movies')
 @UseGuards(AuthGuard)
 export class AdminPanelMoviesController {
   constructor(private readonly moviesService: AdminPanelMoviesService) {}

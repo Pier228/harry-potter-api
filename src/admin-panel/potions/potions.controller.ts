@@ -3,8 +3,10 @@ import { AdminPanelPotionsService } from './potions.service';
 import { AuthGuard } from '../auth/guard/auth.guard';
 import { CreatePotionDTO } from './dto/create.potion.dto';
 import { UpdatePotionDTO } from './dto/update.potion.dto';
+import { ApiTags } from '@nestjs/swagger';
 
 @Controller('admin-panel/potions')
+@ApiTags('Admin Panel - Potions')
 @UseGuards(AuthGuard)
 export class AdminPanelPotionsController {
   constructor(

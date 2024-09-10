@@ -3,8 +3,10 @@ import { AdminPanelSpellsService } from './spells.service';
 import { AuthGuard } from '../auth/guard/auth.guard';
 import { CreateSpellDTO } from './dto/create.spell.dto';
 import { UpdateSpellDTO } from './dto/update.spell.dto';
+import { ApiTags } from '@nestjs/swagger';
 
 @Controller('admin-panel/spells')
+@ApiTags('Admin Panel - Spells')
 @UseGuards(AuthGuard)
 export class AdminPanelSpellsController {
   constructor(private readonly adminPanelSpellsService: AdminPanelSpellsService) {}

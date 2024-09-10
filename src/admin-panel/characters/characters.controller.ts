@@ -3,8 +3,10 @@ import { AdminPanelCharactersService } from './characters.service';
 import { AuthGuard } from '../auth/guard/auth.guard';
 import { CreateCharacterDTO } from './dto/create.character.dto';
 import { UpdateCharacterDTO } from './dto/update.character.dto';
+import { ApiTags } from '@nestjs/swagger';
 
 @Controller('admin-panel/characters')
+@ApiTags('Admin Panel - Characters')
 @UseGuards(AuthGuard)
 export class AdminPanelCharactersController {
   constructor(private readonly adminPanelCharactersService: AdminPanelCharactersService) {}
