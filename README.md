@@ -1,38 +1,105 @@
 <p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
+  <img src="https://i.ibb.co/VW97KVV/pngwing-com.png" width="250" alt="Harry Potter Logo" />
 </p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+# Harry Potter Universe API
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+Welcome to the Harry Potter Universe API! This API provides access to a rich set of data related to the Harry Potter universe, including spells, potions, movies, characters, and books. Additionally, it features an AI-powered endpoint for answering any Harry Potter-related questions.
 
-## Description
+## Project Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+The **Harry Potter Universe API** is a comprehensive tool that allows developers to access a wealth of information related to the world of Harry Potter. This API is designed to provide data on spells, potions, movies, characters, and books from the beloved series. In addition to retrieving data, the API features an AI-powered endpoint capable of answering any question related to the Harry Potter universe. This functionality makes it a versatile resource for developers building fan websites, trivia games, or educational tools related to the Harry Potter world.
+
+The API is built using **NestJS**, with **PostgreSQL** as the database managed through **Prisma ORM**. The database is hosted on **Supabase**, ensuring secure and scalable data storage. The admin panel allows authorized users to manage the content, including full CRUD operations on books, characters, movies, potions, and spells.
+
+Security is a key aspect of this API. Only administrators can register and authenticate, ensuring that sensitive operations like database management are restricted to authorized users. Authentication is handled via **JWT**, with tokens that are valid for 4 hours. To protect the API from abuse, **rate limiting** is implemented, capping requests at 50 per minute. Additionally, **caching** is enabled on all GET requests to improve performance.
+
+This API is also equipped with comprehensive documentation through **Swagger**, making it easy for developers to explore and integrate the various endpoints into their projects.
+
+## Features
+- **Spells, Potions, Movies, Characters, and Books:** Retrieve detailed information about various aspects of the Harry Potter universe.
+- **AI-powered Q&A:** Communicate with an AI that can answer any question related to the Harry Potter universe.
+- **Admin Panel:** Manage the database of spells, potions, movies, characters, and books through a powerful admin panel with full CRUD operations.
+- **Authentication:** Admin registration and login via JWT for secure access to the admin panel.
+- **Rate Limiting:** Protection from spam with a limit of 50 requests per minute.
+- **Caching:** Automatic caching on all `GET` requests for faster response times.
+- **Swagger Documentation:** A detailed API documentation is available via the `/api` endpoint.
+
+## Tech Stack
+
+- **Backend Framework:** [NestJS](https://nestjs.com)
+- **Database:** PostgreSQL (hosted on [Supabase](https://supabase.com))
+- **ORM:** [Prisma](https://www.prisma.io/)
+- **AI:** [Mixtral](https://mixtral.ai)
+- **Authentication:** JWT for admin access
+- **Documentation:** Swagger
+- **Rate Limiting:** 50 requests per minute
+- **Caching:** Enabled on all `GET` requests
+
+## Swagger API Documentation
+
+For a detailed overview of the available API endpoints, request/response structures, and data models, the Swagger documentation is available at `/api`. This documentation provides interactive API exploration and helps developers understand and integrate with the API efficiently.
+
+## Rate Limiting
+
+To prevent overloading, the API has a built-in rate limiting mechanism allowing **50 requests per minute**.
+
+## Caching
+
+All `GET` requests are automatically cached for better performance and reduced load.
+
+## Authentication
+
+Only administrators are required to register and authenticate. Upon successful registration with a secret key, admins can log in and obtain a JWT token, which is needed for making authorized requests to the admin panel. JWT tokens are valid for **4 hours**.
+
+### Admin Registration
+
+To register as an admin, you need to provide a valid secret key. After registration, you will be able to log in and access your admin credentials.
+```bash
+POST admin-panel/auth/reg
+```
+
+### Admin Login
+
+Admins can log in with their credentials to receive a JWT token, which must be included in the headers of all requests to access the admin panel.
+```bash
+POST admin-panel/auth/log
+```
+
+### Using JWT Token
+
+Include the JWT token in the Authorization header for authorized requests:
+```bash
+authorization: your-token
+```
 
 ## Installation
 
 ```bash
+$ git clone https://github.com/Pier228/harry-potter-api.git
+$ cd harry-potter-api
 $ npm install
 ```
 
+## Environment Variables
+
+To run this application, you need to set up several environment variables. Create a `.env` file in the root directory of the project and add the following variables:
+
+- `DATABASE_URL`: Database connection url
+- `PORT`: Server port
+- `DIRECT_URL`: Direct connection to the database. Used for migrations
+- `AUTH_KEY`: Authorization key
+- `JWT_SECRET`: JWT secret
+- `HASH_LVL`: Hash lever for password encryption
+- `AI_KEY`: Key for AI assistant
+- `AI_MODEL`: AI assistant model
+- `AI_SETTINGS`: Settings for the AI assistant 
+
+Also you can see example of needed environment variables in [.env.example](/.env.example)
+
 ## Running the app
+
+After setting up the .env file, you can start the application using the following commands:
 
 ```bash
 # development
@@ -45,29 +112,6 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
 ## License
 
-Nest is [MIT licensed](LICENSE).
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
